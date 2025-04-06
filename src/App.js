@@ -5,10 +5,11 @@ import About from "./pages/About";
 
 function App() {
   return (
-    <Router basename="/barker-longhorn-site">
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        {/* Add more pages as needed */}
       </Routes>
     </Router>
   );

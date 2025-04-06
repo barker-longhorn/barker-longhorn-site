@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/barker-longhorn-site/static/css/main.ea54735c.css",
+    "main.css": "/barker-longhorn-site/static/css/main.9bd04cb0.css",
     "main.js": "/barker-longhorn-site/static/js/main.118d1ca7.js",
     "static/js/453.e3b2e9e8.chunk.js": "/barker-longhorn-site/static/js/453.e3b2e9e8.chunk.js",
     "index.html": "/barker-longhorn-site/index.html",
-    "main.ea54735c.css.map": "/barker-longhorn-site/static/css/main.ea54735c.css.map",
+    "main.9bd04cb0.css.map": "/barker-longhorn-site/static/css/main.9bd04cb0.css.map",
     "main.118d1ca7.js.map": "/barker-longhorn-site/static/js/main.118d1ca7.js.map",
     "453.e3b2e9e8.chunk.js.map": "/barker-longhorn-site/static/js/453.e3b2e9e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea54735c.css",
+    "static/css/main.9bd04cb0.css",
     "static/js/main.118d1ca7.js"
   ]
 }

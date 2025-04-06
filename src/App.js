@@ -1,14 +1,16 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-    </>
+    <Router basename="/barker-longhorn-site">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 

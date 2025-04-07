@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logowhite.png";
 import basictick from "../assets/basictick.png";
@@ -6,6 +6,21 @@ import standardtick from "../assets/standardtick.png";
 import premiumtick from "../assets/premiumtick.png";
 
 function Services() {
+  const [billingCycle, setBillingCycle] = useState("monthly");
+
+  const pricing = {
+    monthly: {
+      basic: "£10/month",
+      standard: "£25/month",
+      premium: "£50/month",
+    },
+    annual: {
+      basic: "£100/year",
+      standard: "£250/year",
+      premium: "£500/year",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#3864a4] text-white px-8 py-10 font-sans">
       <div className="relative z-10">
@@ -33,7 +48,33 @@ function Services() {
             </p>
           </div>
 
-          <h1 className="text-5xl font-bold mb-16 text-center">Our Plans</h1>
+          <h1 className="text-5xl font-bold mb-8 text-center">Our Plans</h1>
+
+          {/* Billing Toggle */}
+          <div className="text-center mb-12">
+            <div className="inline-flex rounded-full overflow-hidden border-2 border-white">
+              <button
+                className={`px-6 py-2 font-medium transition ${
+                  billingCycle === "monthly"
+                    ? "bg-[#203454] text-white"
+                    : "bg-white text-[#203454]"
+                }`}
+                onClick={() => setBillingCycle("monthly")}
+              >
+                Monthly
+              </button>
+              <button
+                className={`px-6 py-2 font-medium transition ${
+                  billingCycle === "annual"
+                    ? "bg-[#203454] text-white"
+                    : "bg-white text-[#203454]"
+                }`}
+                onClick={() => setBillingCycle("annual")}
+              >
+                Annually
+              </button>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
             {/* BASIC */}
@@ -64,7 +105,7 @@ function Services() {
                   </ul>
                 </div>
                 <div className="bg-[#99b8da] text-center py-4 text-xl font-bold text-[#203454]">
-                  £10/month
+                  {pricing[billingCycle].basic}
                 </div>
               </div>
               <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#99b8da] hover:text-white transition">
@@ -74,8 +115,8 @@ function Services() {
 
             {/* STANDARD */}
             <div className="flex flex-col items-center w-full relative">
-              {/* Most Popular Banner */}
-              <div className="absolute -top-6 bg-white text-[#203454] text-sm font-semibold px-4 py-1 rounded shadow">
+              {/* MOST POPULAR tag */}
+              <div className="absolute -top-6 bg-white text-[#203454] text-sm font-semibold px-4 py-1 rounded border-2 border-[#203454] shadow-md">
                 MOST POPULAR
               </div>
 
@@ -106,7 +147,7 @@ function Services() {
                   </ul>
                 </div>
                 <div className="bg-[#5c84aa] text-center py-4 text-xl font-bold text-white">
-                  £25/month
+                  {pricing[billingCycle].standard}
                 </div>
               </div>
               <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#5c84aa] hover:text-white transition">
@@ -135,7 +176,7 @@ function Services() {
                   </ul>
                 </div>
                 <div className="bg-[#203454] text-center py-4 text-xl font-bold text-white">
-                  £50/month
+                  {pricing[billingCycle].premium}
                 </div>
               </div>
               <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition">

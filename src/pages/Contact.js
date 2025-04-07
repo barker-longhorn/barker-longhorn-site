@@ -26,7 +26,11 @@ function Contact() {
           </p>
 
           <div className="bg-[#99b8da] text-[#203454] p-8 rounded-lg shadow-lg">
-            <form className="space-y-6">
+            <form
+              action="https://formspree.io/f/xqapgygy"
+              method="POST"
+              className="space-y-6"
+            >
               <div>
                 <label htmlFor="name" className="block font-semibold mb-2">
                   Name <span className="text-red-600">*</span>
@@ -34,6 +38,7 @@ function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
                   className="w-full px-4 py-3 rounded border focus:outline-none text-[#203454]"
                   placeholder="Your name"
@@ -46,6 +51,7 @@ function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
                   className="w-full px-4 py-3 rounded border focus:outline-none text-[#203454]"
                   placeholder="you@email.com"
@@ -57,6 +63,7 @@ function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows="5"
                   required
                   className="w-full px-4 py-3 rounded border focus:outline-none text-[#203454]"

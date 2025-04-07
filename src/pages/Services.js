@@ -4,6 +4,7 @@ import logo from "../assets/logowhite.png";
 import basictick from "../assets/basictick.png";
 import standardtick from "../assets/standardtick.png";
 import premiumtick from "../assets/premiumtick.png";
+import { PopupButton } from "react-calendly";
 
 function Services() {
   const [billingCycle, setBillingCycle] = useState("monthly");
@@ -34,7 +35,7 @@ function Services() {
           {/* Info Text */}
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-semibold mb-2">
-              Start with a free consultation and a 1-week demo — no strings attached.
+              Start with a consultation and a 1-week demo for FREE — no strings attached.
             </h2>
             <p className="text-lg text-blue-100">
               If it’s a good fit, choose the plan that works for you.
@@ -113,14 +114,10 @@ function Services() {
                   )}
                 </div>
               </div>
-              <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#99b8da] hover:text-white transition">
-                Enquire about Basic
-              </button>
             </div>
 
             {/* STANDARD */}
             <div className="flex flex-col items-center w-full relative">
-              {/* MOST POPULAR tag */}
               <div className="absolute -top-6 bg-white text-[#203454] text-sm font-semibold px-4 py-1 rounded border-2 border-[#203454] shadow-md">
                 MOST POPULAR
               </div>
@@ -167,9 +164,6 @@ function Services() {
                   )}
                 </div>
               </div>
-              <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#5c84aa] hover:text-white transition">
-                Enquire about Standard
-              </button>
             </div>
 
             {/* PREMIUM */}
@@ -208,10 +202,20 @@ function Services() {
                   )}
                 </div>
               </div>
-              <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition">
-                Enquire about Premium
-              </button>
             </div>
+          </div>
+
+          {/* Single CTA button under all tiers */}
+          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex justify-center">
+            <PopupButton
+                url="https://calendly.com/barkerlonghorn" // replace this
+                rootElement={document.getElementById("root")}
+                text="Book a free consult"
+                className="text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition"
+            />
+            </div>
+
           </div>
 
           {/* Contact Section */}

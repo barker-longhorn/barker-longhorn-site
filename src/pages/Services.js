@@ -8,17 +8,10 @@ import premiumtick from "../assets/premiumtick.png";
 function Services() {
   const [billingCycle, setBillingCycle] = useState("monthly");
 
-  const pricing = {
-    monthly: {
-      basic: "£10/month",
-      standard: "£25/month",
-      premium: "£50/month",
-    },
-    annual: {
-      basic: "£100/year",
-      standard: "£250/year",
-      premium: "£500/year",
-    },
+  const monthlyPrices = {
+    basic: 10,
+    standard: 25,
+    premium: 50,
   };
 
   return (
@@ -105,7 +98,19 @@ function Services() {
                   </ul>
                 </div>
                 <div className="bg-[#99b8da] text-center py-4 text-xl font-bold text-[#203454]">
-                  {pricing[billingCycle].basic}
+                  {billingCycle === "monthly" ? (
+                    `£${monthlyPrices.basic}/month`
+                  ) : (
+                    <div>
+                      <div className="text-sm line-through opacity-60 mb-1">
+                        £{monthlyPrices.basic * 12}/year
+                      </div>
+                      <div>
+                        £{monthlyPrices.basic * 10}/year{" "}
+                        <span className="text-sm text-green-300">(Save 17%)</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#99b8da] hover:text-white transition">
@@ -147,7 +152,19 @@ function Services() {
                   </ul>
                 </div>
                 <div className="bg-[#5c84aa] text-center py-4 text-xl font-bold text-white">
-                  {pricing[billingCycle].standard}
+                  {billingCycle === "monthly" ? (
+                    `£${monthlyPrices.standard}/month`
+                  ) : (
+                    <div>
+                      <div className="text-sm line-through opacity-60 mb-1">
+                        £{monthlyPrices.standard * 12}/year
+                      </div>
+                      <div>
+                        £{monthlyPrices.standard * 10}/year{" "}
+                        <span className="text-sm text-green-300">(Save 17%)</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#5c84aa] hover:text-white transition">
@@ -176,7 +193,19 @@ function Services() {
                   </ul>
                 </div>
                 <div className="bg-[#203454] text-center py-4 text-xl font-bold text-white">
-                  {pricing[billingCycle].premium}
+                  {billingCycle === "monthly" ? (
+                    `£${monthlyPrices.premium}/month`
+                  ) : (
+                    <div>
+                      <div className="text-sm line-through opacity-60 mb-1">
+                        £{monthlyPrices.premium * 12}/year
+                      </div>
+                      <div>
+                        £{monthlyPrices.premium * 10}/year{" "}
+                        <span className="text-sm text-green-300">(Save 17%)</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               <button className="w-full mt-4 text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition">

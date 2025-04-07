@@ -39,9 +39,11 @@ function Home() {
               We provide automation solutions to help small businesses save time,
               reduce costs, and improve efficiency.
             </p>
-            <button className="text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition">
-              Get Started
-            </button>
+            <Link to="/services">
+              <button className="text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition">
+                Get Started
+              </button>
+            </Link>
           </div>
         </main>
       </div>

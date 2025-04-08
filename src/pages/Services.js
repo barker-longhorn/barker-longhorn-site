@@ -12,7 +12,6 @@ function Services() {
   const monthlyPrices = {
     basic: 10,
     standard: 25,
-    premium: 50,
   };
 
   return (
@@ -65,7 +64,7 @@ function Services() {
                 }`}
                 onClick={() => setBillingCycle("annual")}
               >
-                Annually
+                Annual
               </button>
             </div>
           </div>
@@ -121,7 +120,6 @@ function Services() {
               <div className="absolute -top-6 bg-white text-[#203454] text-sm font-semibold px-4 py-1 rounded border-2 border-[#203454] shadow-md">
                 MOST POPULAR
               </div>
-
               <div className="w-full min-h-[30rem] flex flex-col rounded-xl overflow-hidden shadow-lg">
                 <div className="bg-[#5c84aa] text-center py-4 px-4">
                   <h2 className="text-3xl font-bold text-white">Standard</h2>
@@ -184,38 +182,27 @@ function Services() {
                       <img src={premiumtick} alt="tick" className="w-5 h-5 mt-1" />
                       Priority onboarding & support
                     </li>
+                    <li className="flex items-start gap-3">
+                      <img src={premiumtick} alt="tick" className="w-5 h-5 mt-1" />
+                      Tailored solutions for your needs
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-[#203454] text-center py-4 text-xl font-bold text-white">
-                  {billingCycle === "monthly" ? (
-                    `£${monthlyPrices.premium}/month`
-                  ) : (
-                    <div>
-                      <div className="text-sm line-through opacity-60 mb-1">
-                        £{monthlyPrices.premium * 12}/year
-                      </div>
-                      <div>
-                        £{monthlyPrices.premium * 10}/year{" "}
-                        <span className="text-sm text-green-300">(Save 17%)</span>
-                      </div>
-                    </div>
-                  )}
+                  Contact us for a quote today
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Single CTA button under all tiers */}
-          <div className="mt-10 flex justify-center">
+          {/* CTA Button */}
           <div className="mt-10 flex justify-center">
             <PopupButton
-                url="https://calendly.com/barkerlonghorn" // replace this
-                rootElement={document.getElementById("root")}
-                text="Book a free consult"
-                className="text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition"
+              url="https://calendly.com/barkerlonghorn"
+              rootElement={document.getElementById("root")}
+              text="Book a free consult"
+              className="text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition"
             />
-            </div>
-
           </div>
 
           {/* Contact Section */}

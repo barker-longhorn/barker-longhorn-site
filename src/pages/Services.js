@@ -15,14 +15,14 @@ function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-[#3864a4] text-white px-8 py-10 font-sans">
+    <div className="min-h-screen bg-[#3864a4] text-white px-4 sm:px-6 md:px-8 py-10 font-sans">
       <div className="relative z-10">
         {/* Navbar */}
-        <header className="flex justify-between items-center mb-20">
+        <header className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 mb-16">
           <div className="flex items-center space-x-2 text-white text-2xl font-bold">
-            <img src={logo} alt="Logo" className="h-22 w-auto max-w-[20rem]" />
+            <img src={logo} alt="Logo" className="h-20 w-auto max-w-[14rem] sm:max-w-[18rem] md:max-w-[20rem]" />
           </div>
-          <nav className="space-x-6 text-white text-lg">
+          <nav className="flex flex-col md:flex-row gap-3 md:gap-6 text-white text-lg text-center">
             <Link to="/" className="hover:underline">Home</Link>
             <Link to="/about" className="hover:underline">About</Link>
             <Link to="/services" className="hover:underline">Services</Link>

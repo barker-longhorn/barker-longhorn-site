@@ -32,13 +32,23 @@ function Services() {
 
         <main className="max-w-6xl mx-auto">
           {/* Info Text */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h2 className="text-2xl md:text-3xl font-semibold mb-2">
               Start with a consultation and a 1-week demo for FREE — no strings attached.
             </h2>
             <p className="text-lg text-blue-100">
               If it’s a good fit, choose the plan that works for you.
             </p>
+          </div>
+
+          {/* CTA Button - Top */}
+          <div className="mb-12 flex justify-center">
+            <PopupButton
+              url="https://calendly.com/barkerlonghorn"
+              rootElement={document.getElementById("root")}
+              text="Book a free consult"
+              className="text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition"
+            />
           </div>
 
           <h1 className="text-5xl font-bold mb-8 text-center">Our Plans</h1>
@@ -195,7 +205,7 @@ function Services() {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Bottom */}
           <div className="mt-10 flex justify-center">
             <PopupButton
               url="https://calendly.com/barkerlonghorn"

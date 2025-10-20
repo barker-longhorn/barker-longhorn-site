@@ -15,3 +15,98 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ===============================
+   Barker-Longhorn UI — Glass Styles
+   =============================== */
+
+/* ——— Top nav: single pill-shaped blur bar (no visible border/edge) ——— */
+.top-pill {
+  border-radius: 9999px;
+  /* tiny fill only to enable Safari/iOS backdrop; visually invisible */
+  background-color: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: none;  /* remove inset highlight/border */
+  border: none;
+}
+
+/* Optional: keep it clean on interactive states too */
+.top-pill:hover,
+.top-pill:focus-within {
+  box-shadow: none;
+  border: none;
+}
+
+/* Fallback if backdrop-filter isn’t supported */
+@supports not (backdrop-filter: blur(1px)) {
+  .top-pill {
+    background-color: rgba(0, 0, 0, 0.35); /* subtle solid for readability */
+  }
+}
+
+/* ——— Nav links that sit INSIDE the top pill ———
+   No blur (the bar provides blur), subtle hover fill only. */
+.nav-pill {
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9999px;
+  padding: 0.5rem 0.9rem;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+  transition: transform .06s ease, background-color .15s ease, opacity .15s ease;
+}
+.nav-pill:hover   { transform: translateY(-0.5px); background-color: rgba(255,255,255,0.06); }
+.nav-pill:active  { transform: translateY(0.5px); }
+.nav-pill:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.28);
+}
+
+/* ——— Hero CTAs: individual blur-only pills ———
+   Pure backdrop blur (no visible tint/gradient). */
+.glass-pill {
+  border: 0;
+  border-radius: 9999px;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  /* minimal alpha to trigger Safari's backdrop pipeline */
+  background-color: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: none;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+  transition: backdrop-filter .2s ease, -webkit-backdrop-filter .2s ease, transform .06s ease;
+}
+.glass-pill:hover {
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  transform: translateY(-0.5px);
+}
+.glass-pill:active { transform: translateY(0.5px); }
+.glass-pill:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.28);
+}
+
+/* Size variants for CTAs */
+.glass-cta   { font-size: 1.125rem; font-weight: 600; }
+.glass-ghost { font-size: 1.075rem; font-weight: 600; padding: 0.8rem 1.3rem; }
+
+/* Fallback for CTA pills on older browsers */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-pill {
+    background-color: rgba(255, 255, 255, 0.08);
+    text-shadow: none;
+  }
+}
+
+/* ——— Optional accessibility tweak: reduce motion users ——— */
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill,
+  .glass-pill {
+    transition: none;
+  }
+}

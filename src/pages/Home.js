@@ -1,57 +1,77 @@
 import React from "react";
 import "../index.css";
 import logo from "../assets/logowhite.png";
-import pcIcon from "../assets/pcicon.png";
 import { Link } from "react-router-dom";
+
+// BG video (rotated 180°)
+import heroVideo from "../assets/assets_task_01k8139q1gexzbfqnkhz13b604_task_01k8139q1gexzbfqnkhz13b604_genid_380c905e-5522-4c63-8d9c-a24acc4a2f24_25_10_20_15_20_724760_videos_00000_331294450_source.mp4";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#3864a4] text-white px-4 sm:px-6 md:px-8 pt-4 pb-10 font-sans">
-      {/* Main Content */}
-      <div className="relative z-10">
-        {/* Navbar */}
-        <header className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 mb-10">
-          <div className="flex items-center space-x-2 text-white text-2xl font-bold">
-            <img src={logo} alt="Logo" className="h-20 w-auto max-w-[14rem] sm:max-w-[18rem] md:max-w-[20rem]" />
-          </div>
-          <nav className="flex flex-col md:flex-row gap-3 md:gap-6 text-white text-lg text-center">
-            <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/about" className="hover:underline">About</Link>
-            <Link to="/services" className="hover:underline">Services</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
-          </nav>
-        </header>
+    <div className="relative min-h-screen w-full overflow-hidden bg-black text-white">
+      {/* Background video (rotated) */}
+      <div aria-hidden className="absolute inset-0">
+        <video
+          className="h-full w-full object-cover rotate-0"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
 
-        {/* Hero Section */}
-        <main className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-              AI & Automation<br />for Small Businesses
+        {/* readability overlays */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_-10%,rgba(0,0,0,0.1)_0%,rgba(0,0,0,0.65)_70%,rgba(0,0,0,0.85)_100%)]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent" />
+      </div>
+
+      {/* Motion-reduce fallback */}
+      <div className="pointer-events-none absolute inset-0 hidden bg-black motion-reduce:block" />
+
+      {/* ===== Pill-shaped top bar ===== */}
+      <header className="fixed z-30 top-6 inset-x-6 md:top-7 md:inset-x-10">
+        <div className="top-pill">
+          <div className="flex items-center justify-between h-14 md:h-16 pl-8 sm:pl-10 md:pl-12 pr-5 sm:pr-6 md:pr-8">
+            <div className="flex items-center mr-2">
+              <img
+                src={logo}
+                alt="Barker-Longhorn"
+                className="h-10 sm:h-11 md:h-12 w-auto"
+              />
+            </div>
+
+            <nav className="flex items-center gap-3 md:gap-5">
+              <Link to="/"         className="nav-pill">Home</Link>
+              <Link to="/about"    className="nav-pill">About</Link>
+              <Link to="/Products" className="nav-pill">Products</Link>
+              <Link to="/contact"  className="nav-pill">Contact</Link>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Content */}
+      <div className="relative z-20 pt-[6.75rem] md:pt-[7.75rem] px-4 sm:px-6 md:px-10 lg:px-16 pb-12">
+        <main className="mt-8 md:mt-10 grid grid-cols-1">
+          {/* HERO: even further left to align with logo */}
+          <div className="ml-0 sm:ml-2 md:ml-4 lg:ml-6 max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
+              A new way to think<br className="hidden sm:block" />
+              and create with computers
             </h1>
-            <p className="text-base sm:text-lg md:text-2xl text-blue-100 mb-6 max-w-xl mx-auto md:mx-0">
-              We provide automation solutions to help small businesses save time,
-              reduce costs, and improve efficiency.
-            </p>
-          </div>
 
-          {/* Image */}
-          <div className="flex justify-center">
-            <img
-              src={pcIcon}
-              alt="Person at computer illustration"
-              className="max-h-[18rem] sm:max-h-[24rem] md:max-h-[35rem] w-auto pointer-events-none select-none"
-            />
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl">
+              AI & automation that quietly handles the busywork—so your small business can move faster.
+            </p>
+
+            {/* Individual blur-only CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link to="/Products" className="glass-pill glass-cta">Get Started</Link>
+              <Link to="/about"    className="glass-pill glass-ghost">Learn More</Link>
+            </div>
           </div>
         </main>
-
-        {/* Button */}
-        <div className="mt-8 flex justify-center">
-          <Link to="/services">
-            <button className="w-full sm:w-auto text-lg bg-white text-[#3864a4] font-semibold py-4 px-8 rounded shadow hover:bg-[#203454] hover:text-white transition">
-              Get Started
-            </button>
-          </Link>
-        </div>
       </div>
     </div>
   );

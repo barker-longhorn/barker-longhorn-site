@@ -16,7 +16,7 @@ function About() {
           <nav className="flex flex-col md:flex-row gap-3 md:gap-6 text-white text-lg text-center">
             <Link to="/" className="hover:underline">Home</Link>
             <Link to="/about" className="hover:underline">About</Link>
-            <Link to="/services" className="hover:underline">Services</Link>
+            <Link to="/Products" className="hover:underline">Products</Link>
             <Link to="/contact" className="hover:underline">Contact</Link>
           </nav>
         </header>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logowhite.png";
 import { PopupButton } from "react-calendly";
 
-function Services() {
+function Products() {
   return (
     <div className="min-h-screen bg-[#3864a4] text-white px-4 sm:px-6 md:px-8 py-10 font-sans">
       <div className="relative z-10">
@@ -23,8 +23,8 @@ function Services() {
             <Link to="/about" className="hover:underline">
               About
             </Link>
-            <Link to="/services" className="hover:underline">
-              Services
+            <Link to="/Products" className="hover:underline">
+              Products
             </Link>
             <Link to="/contact" className="hover:underline">
               Contact
@@ -34,7 +34,7 @@ function Services() {
 
         <main className="max-w-4xl mx-auto text-center">
           {/* Info Text */}
-          <h1 className="text-5xl font-bold mb-8">Services</h1>
+          <h1 className="text-5xl font-bold mb-8">Products</h1>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">
             Start with a free consultation — no strings attached.
           </h2>
@@ -70,4 +70,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default Products;

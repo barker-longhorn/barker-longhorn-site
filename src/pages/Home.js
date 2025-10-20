@@ -4,7 +4,7 @@ import logo from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
 
 // BG video (not rotated)
-import heroVideo from "../assets/BL.mov";
+import heroVideo from "../assets/BL2.mov";
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
       {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
-          className="h-full w-full object-cover rotate-0"
+          className="h-full w-full object-cover rotate-0 -scale-x-100 origin-center"
           autoPlay
           loop
           muted

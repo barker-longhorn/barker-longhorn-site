@@ -3,13 +3,13 @@ import "../index.css";
 import logo from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
 
-// BG video (rotated 180°)
-import heroVideo from "../assets/assets_task_01k8139q1gexzbfqnkhz13b604_task_01k8139q1gexzbfqnkhz13b604_genid_380c905e-5522-4c63-8d9c-a24acc4a2f24_25_10_20_15_20_724760_videos_00000_331294450_source.mp4";
+// BG video (not rotated)
+import heroVideo from "../assets/BL.mov";
 
 function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black text-white">
-      {/* Background video (rotated) */}
+      {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
           className="h-full w-full object-cover rotate-0"
@@ -29,8 +29,8 @@ function Home() {
       {/* Motion-reduce fallback */}
       <div className="pointer-events-none absolute inset-0 hidden bg-black motion-reduce:block" />
 
-      {/* ===== Pill-shaped top bar ===== */}
-      <header className="fixed z-30 top-6 inset-x-6 md:top-7 md:inset-x-10">
+      {/* ===== Pill-shaped top bar (moved down) ===== */}
+      <header className="fixed z-30 top-10 inset-x-6 md:top-12 md:inset-x-10">
         <div className="top-pill">
           <div className="flex items-center justify-between h-14 md:h-16 pl-8 sm:pl-10 md:pl-12 pr-5 sm:pr-6 md:pr-8">
             <div className="flex items-center mr-2">
@@ -51,18 +51,17 @@ function Home() {
         </div>
       </header>
 
-      {/* Content */}
-      <div className="relative z-20 pt-[6.75rem] md:pt-[7.75rem] px-4 sm:px-6 md:px-10 lg:px-16 pb-12">
+      {/* Content — pushed further down to clear header */}
+      <div className="relative z-20 pt-[11rem] md:pt-[13rem] px-4 sm:px-6 md:px-10 lg:px-16 pb-12">
         <main className="mt-8 md:mt-10 grid grid-cols-1">
-          {/* HERO: even further left to align with logo */}
-          <div className="ml-0 sm:ml-2 md:ml-4 lg:ml-6 max-w-3xl">
+          {/* HERO: left-aligned, shifted slightly right, further down */}
+          <div className="ml-0 sm:ml-2 md:ml-4 lg:ml-6 max-w-3xl mt-6 md:mt-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
-              A new way to think<br className="hidden sm:block" />
-              and create with computers
+              Clarity from chaos.
             </h1>
 
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl">
-              AI & automation that quietly handles the busywork—so your small business can move faster.
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl leading-snug md:leading-normal">
+              Turn sprawling data rooms into clean, citation-backed documents automatically and privately with [ALPHA] by Barker Longhorn.
             </p>
 
             {/* Individual blur-only CTAs */}

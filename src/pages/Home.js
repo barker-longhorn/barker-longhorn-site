@@ -4,7 +4,7 @@ import logo from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
 
 // BG video (not rotated)
-import heroVideo from "../assets/BL2.mov";
+import heroVideo from "../assets/BL2.mp4";
 
 function Home() {
   return (

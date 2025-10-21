@@ -5,7 +5,7 @@ import "../index.css";
 // import { PopupButton } from "react-calendly"; // ← commented out
 
 // same mirrored background as the other pages
-import heroVideo from "../assets/BL2.mov";
+import heroVideo from "../assets/BL2.mp4";
 
 function Products() {
   return (

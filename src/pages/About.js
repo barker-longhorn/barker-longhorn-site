@@ -4,7 +4,7 @@ import logo from "../assets/logowhite.png";
 import "../index.css";
 
 // same background as other pages
-import heroVideo from "../assets/BL2.mov";
+import heroVideo from "../assets/BL2.mp4";
 
 function About() {
   return (

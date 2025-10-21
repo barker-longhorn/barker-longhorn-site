@@ -110,3 +110,9 @@ code {
     transition: none;
   }
 }
+
+/* Hide iOS big play badge if it appears */
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}

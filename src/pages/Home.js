@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../index.css";
 import logo from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
@@ -8,17 +8,68 @@ import heroVideo from "../assets/BL2.mp4";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const videoRef = useRef(null);
+
+  // --- Minimal autoplay fallback for iOS + Low Power Mode ---
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    // Must be muted and playsinline for iOS autoplay
+    v.muted = true;
+
+    const tryPlay = () => {
+      v.play().catch(() => {
+        // Defer until first user interaction
+        const onInteract = () => {
+          v.play().finally(() => {
+            window.removeEventListener("touchstart", onInteract);
+            window.removeEventListener("click", onInteract);
+          });
+        };
+        window.addEventListener("touchstart", onInteract, { once: true });
+        window.addEventListener("click", onInteract, { once: true });
+      });
+    };
+
+    tryPlay();
+
+    // Resume when page becomes visible or regains focus (handles tab switches)
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        v.play().catch(() => {});
+      }
+    };
+    const onFocus = () => v.play().catch(() => {});
+
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("focus", onFocus);
+
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("focus", onFocus);
+    };
+  }, []);
+  // --- End autoplay fallback ---
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black text-white overflow-x-hidden">
       {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
+          ref={videoRef}
           className="h-full w-full object-cover rotate-0 -scale-x-100 origin-center"
           autoPlay
           loop
           muted
           playsInline
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noplaybackrate"
+          preload="auto"
+          // @ts-ignore for older WebKit
+          webkit-playsinline="true"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>

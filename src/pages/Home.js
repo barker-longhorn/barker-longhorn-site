@@ -8,50 +8,52 @@ import heroVideo from "../assets/BL2.mp4";
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [needsStart, setNeedsStart] = useState(true);
   const videoRef = useRef(null);
 
-  // --- Minimal autoplay fallback for iOS + Low Power Mode ---
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
 
-    // Must be muted and playsinline for iOS autoplay
     v.muted = true;
 
+    const onPlay = () => setNeedsStart(false);
+    v.addEventListener("play", onPlay);
+
     const tryPlay = () => {
-      v.play().catch(() => {
-        // Defer until first user interaction
-        const onInteract = () => {
-          v.play().finally(() => {
-            window.removeEventListener("touchstart", onInteract);
-            window.removeEventListener("click", onInteract);
-          });
-        };
-        window.addEventListener("touchstart", onInteract, { once: true });
-        window.addEventListener("click", onInteract, { once: true });
-      });
+      v.play()
+        .then(() => setNeedsStart(false))
+        .catch(() => {
+          // stay paused; overlay will handle first tap
+        });
     };
 
+    // try once (will work on most devices not in Low Power Mode)
     tryPlay();
 
-    // Resume when page becomes visible or regains focus (handles tab switches)
+    // also resume when tab becomes visible/focused
     const onVisibility = () => {
-      if (document.visibilityState === "visible") {
-        v.play().catch(() => {});
-      }
+      if (document.visibilityState === "visible") v.play().catch(() => {});
     };
     const onFocus = () => v.play().catch(() => {});
-
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("focus", onFocus);
 
     return () => {
+      v.removeEventListener("play", onPlay);
       document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("focus", onFocus);
     };
   }, []);
-  // --- End autoplay fallback ---
+
+  const handleStart = () => {
+    const v = videoRef.current;
+    if (v) {
+      v.muted = true;
+      v.play().finally(() => setNeedsStart(false));
+    }
+  };
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black text-white overflow-x-hidden">
@@ -60,6 +62,7 @@ function Home() {
         <video
           ref={videoRef}
           className="h-full w-full object-cover rotate-0 -scale-x-100 origin-center"
+          // no poster needed, but you can add one if you want a specific still image
           autoPlay
           loop
           muted
@@ -68,7 +71,7 @@ function Home() {
           disablePictureInPicture
           controlsList="nodownload nofullscreen noplaybackrate"
           preload="auto"
-          // @ts-ignore for older WebKit
+          // @ts-ignore
           webkit-playsinline="true"
         >
           <source src={heroVideo} type="video/mp4" />
@@ -79,11 +82,21 @@ function Home() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent" />
       </div>
 
+      {/* Transparent tap-to-start overlay (covers the whole viewport until playing) */}
+      {needsStart && (
+        <button
+          aria-label="Start background animation"
+          onClick={handleStart}
+          className="fixed inset-0 z-30 cursor-pointer md:cursor-auto"
+          style={{ background: "transparent" }}
+        />
+      )}
+
       {/* Motion-reduce fallback */}
       <div className="pointer-events-none absolute inset-0 hidden bg-black motion-reduce:block" />
 
       {/* ===== Pill-shaped top bar (moved down) ===== */}
-      <header className="fixed z-30 top-10 inset-x-6 md:top-12 md:inset-x-10">
+      <header className="fixed z-40 top-10 inset-x-6 md:top-12 md:inset-x-10">
         <div className="top-pill">
           <div className="flex items-center justify-between h-14 md:h-16 pl-8 sm:pl-10 md:pl-12 pr-5 sm:pr-6 md:pr-8">
             <div className="flex items-center mr-2">
@@ -118,7 +131,7 @@ function Home() {
 
       {/* Mobile menu panel: full blurred background behind stacked links */}
       {menuOpen && (
-        <div className="fixed z-30 top-24 inset-x-6 md:hidden">
+        <div className="fixed z-40 top-24 inset-x-6 md:hidden">
           <div
             className="backdrop-blur-xl rounded-2xl p-2"
             style={{ backgroundColor: "rgba(255,255,255,0.02)" }}

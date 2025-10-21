@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import logo from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import heroVideo from "../assets/BL2.mp4";
 
 function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black text-white">
+    <div className="relative min-h-screen w-full overflow-hidden bg-black text-white overflow-x-hidden">
       {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
@@ -41,15 +43,44 @@ function Home() {
               />
             </div>
 
-            <nav className="flex items-center gap-3 md:gap-5">
+            {/* Desktop nav (unchanged) */}
+            <nav className="hidden md:flex items-center gap-3 md:gap-5">
               <Link to="/"         className="nav-pill">Home</Link>
               <Link to="/about"    className="nav-pill">About</Link>
               <Link to="/Products" className="nav-pill">Products</Link>
               <Link to="/contact"  className="nav-pill">Contact</Link>
             </nav>
+
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden nav-pill"
+              aria-label="Open navigation"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <span className="block w-6 h-[2px] bg-white mb-1.5" />
+              <span className="block w-6 h-[2px] bg-white mb-1.5" />
+              <span className="block w-6 h-[2px] bg-white" />
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Mobile menu panel: full blurred background behind stacked links */}
+      {menuOpen && (
+        <div className="fixed z-30 top-24 inset-x-6 md:hidden">
+          <div
+            className="backdrop-blur-xl rounded-2xl p-2"
+            style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
+          >
+            <div className="flex flex-col">
+              <Link to="/" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Home</Link>
+              <Link to="/about" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>About</Link>
+              <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Products</Link>
+              <Link to="/contact" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Contact</Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Content — pushed further down to clear header */}
       <div className="relative z-20 pt-[11rem] md:pt-[13rem] px-4 sm:px-6 md:px-10 lg:px-16 pb-12">

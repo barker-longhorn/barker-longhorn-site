@@ -6,6 +6,7 @@ import "../index.css";
 
 // same mirrored background as the other pages
 import heroVideo from "../assets/BL2.mp4";
+import productImage from "../assets/DOCRAedited.png";
 
 function Products() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -83,19 +84,33 @@ function Products() {
         )}
 
         {/* Main content */}
-        <main className="px-4 sm:px-6 md:px-10 lg:px-16 pb-16 pt-[6.5rem] md:pt-[8rem]">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
-              Introducing [ALPHA]
-            </h1>
+        <main className="px-4 sm:px-6 md:px-10 lg:px-16 pb-16 pt-[5rem] md:pt-[6.5rem]">
+          {/* Outer container can be wider to allow the image to grow */}
+          <div className="max-w-6xl mx-auto text-center">
+            {/* Header constrained to previous width */}
+            <div className="max-w-3xl mx-auto">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
+                Introducing
+              </h1>
+            </div>
 
-            <h2 className="mt-4 text-2xl md:text-3xl font-semibold">
-              Evidence-first AI for clear reports, grounded in your sources.
-            </h2>
+            {/* Image under the header — bigger, tight spacing, no blur/box */}
+            <img
+              src={productImage}
+              alt="DOCRA product visual"
+              className="mt-4 mx-auto w-full max-w-[900px] h-auto rounded-none shadow-none backdrop-blur-none filter-none ring-0 bg-transparent pointer-events-none select-none"
+            />
 
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal">
-              Your data room is sprawling and fast-moving. [ALPHA] makes it usable. It listens for changes, combs the whole repository, and compresses what it finds into a verifiable evidence map. From there, you set a few focus terms, and [ALPHA] assembles a clean fact ledger that covers every matching source, collapses duplicates, and preserves citations. The result is a publication-ready document where every statement is traced to its source.
-            </p>
+            {/* Subheader + body constrained to previous width */}
+            <div className="max-w-3xl mx-auto">
+              <h2 className="mt-6 text-2xl md:text-3xl font-semibold">
+                Evidence-first AI for clear reports, grounded in your sources.
+              </h2>
+
+              <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
+                Your data room is sprawling and fast-moving. DOCRA makes it usable. It listens for changes, combs the whole repository, and compresses what it finds into a verifiable evidence map. From there, you set a few focus terms, and DOCRA assembles a clean fact ledger that covers every matching source, collapses duplicates, and preserves citations. The result is a publication-ready document where every statement is traced to its source.
+              </p>
+            </div>
 
             {/* === Calendly CTA temporarily disabled === */}
             {/*

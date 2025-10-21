@@ -88,15 +88,15 @@ function About() {
               About
             </h1>
 
-            <p className="mt-5 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal">
+            <p className="mt-5 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
               Barker Longhorn is an applied-AI studio focused on clarity and privacy. We build software that transforms messy, fast-moving information into publish-ready, defensible docs sourced from your own files. Our ethos is evidence-first: every claim should trace back to a source that you control.
             </p>
 
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal">
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-norma text-justify">
               We favor small, sharp tools over bloated platforms so that your organisation moves faster, and you can verify every word. We design for control and auditability first: your environment, your sources, your standards.
             </p>
 
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal">
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
               We’re based in the UK but collaborate globally. If you’re ready to scale smarter —
               we’d love to hear from you.
             </p>

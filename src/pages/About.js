@@ -90,7 +90,7 @@ function About() {
             </h1>
 
             <p className="mt-5 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
-              Barker Longhorn is an applied-AI studio focused on clarity and privacy. We build software that transforms messy, fast-moving information into publish-ready, defensible docs sourced from your own files. Our ethos is evidence-first: every claim should trace back to a source that you control.
+              Barker Longhorn™ is an applied-AI studio focused on clarity and privacy. We build software that transforms messy, fast-moving information into publish-ready, defensible docs sourced from your own files. Our ethos is evidence-first: every claim should trace back to a source that you control.
             </p>
 
             <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">

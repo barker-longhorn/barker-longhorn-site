@@ -144,7 +144,7 @@ function Home() {
             </h1>
 
             <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl leading-snug md:leading-normal text-justify">
-              Turn sprawling data rooms into clean, citation-backed documents automatically and privately with DOCRA by Barker Longhorn.
+              Turn sprawling data rooms into clean, citation-backed documents automatically and privately with DOCRA™ by Barker Longhorn™.
             </p>
 
             {/* Individual blur-only CTAs */}

@@ -109,7 +109,7 @@ function Products() {
               </h2>
 
               <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
-                Your data room is sprawling and fast-moving. DOCRA makes it usable. It listens for changes, combs the whole repository, and compresses what it finds into a verifiable evidence map. From there, you set a few focus terms, and DOCRA assembles a clean fact ledger that covers every matching source, collapses duplicates, and preserves citations. The result is a publication-ready document where every statement is traced to its source.
+                Your data room is sprawling and fast-moving. DOCRA™ makes it usable. It listens for changes, combs the whole repository, and compresses what it finds into a verifiable evidence map. From there, you set a few focus terms, and DOCRA™ assembles a clean fact ledger that covers every matching source, collapses duplicates, and preserves citations. The result is a publication-ready document where every statement is traced to its source.
               </p>
             </div>
 

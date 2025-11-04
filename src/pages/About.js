@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logowhite.png";
 import "../index.css";
+import Footer from "../components/Footer";
 
 // same background as other pages
 import heroVideo from "../assets/BL2.mp4";
@@ -10,7 +11,7 @@ function About() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black text-white overflow-x-hidden">
+    <div className="relative min-h-[120vh] w-full bg-black text-white overflow-x-hidden">
       {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
@@ -66,7 +67,7 @@ function About() {
 
         {/* Mobile menu panel: rounded-rectangle blur behind stacked links */}
         {menuOpen && (
-          <div className="mx-6 md:hidden mt-3">
+          <div className="mx-6 md:hidden mt-3 relative z-30">
             <div
               className="backdrop-blur-xl rounded-2xl p-2"
               style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
@@ -92,7 +93,7 @@ function About() {
               Barker Longhorn is an applied-AI studio focused on clarity and privacy. We build software that transforms messy, fast-moving information into publish-ready, defensible docs sourced from your own files. Our ethos is evidence-first: every claim should trace back to a source that you control.
             </p>
 
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-norma text-justify">
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
               We favor small, sharp tools over bloated platforms so that your organisation moves faster, and you can verify every word. We design for control and auditability first: your environment, your sources, your standards.
             </p>
 
@@ -103,6 +104,10 @@ function About() {
           </div>
         </main>
       </div>
+
+      {/* push footer below the fold to match Home */}
+      <div aria-hidden className="h-[15vh]" />
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logowhite.png";
 import "../index.css";
+import Footer from "../components/Footer";
 // import { PopupButton } from "react-calendly"; // ← commented out
 
 // same mirrored background as the other pages
@@ -137,6 +138,9 @@ function Products() {
           </div>
         </main>
       </div>
+      {/* push footer below the fold to match Home */}
+      <div aria-hidden className="h-[15vh]" />
+      <Footer />
     </div>
   );
 }

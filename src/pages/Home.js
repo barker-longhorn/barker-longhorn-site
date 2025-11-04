@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "../index.css";
 import logo from "../assets/logowhite.png";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 // BG video (not rotated)
 import heroVideo from "../assets/BL2.mp4";
@@ -54,7 +55,7 @@ function Home() {
   // --- End autoplay fallback ---
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black text-white overflow-x-hidden">
+    <div className="relative min-h-[120vh] w-full bg-black text-white overflow-x-hidden">
       {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
@@ -83,7 +84,7 @@ function Home() {
       <div className="pointer-events-none absolute inset-0 hidden bg-black motion-reduce:block" />
 
       {/* ===== Pill-shaped top bar (moved down) ===== */}
-      <header className="fixed z-30 top-10 inset-x-6 md:top-12 md:inset-x-10">
+      <header className="mt-10 md:mt-12 mx-6 md:mx-10 relative z-30">
         <div className="top-pill">
           <div className="flex items-center justify-between h-14 md:h-16 pl-8 sm:pl-10 md:pl-12 pr-5 sm:pr-6 md:pr-8">
             <div className="flex items-center mr-2">
@@ -96,10 +97,10 @@ function Home() {
 
             {/* Desktop nav (unchanged) */}
             <nav className="hidden md:flex items-center gap-3 md:gap-5">
-              <Link to="/"         className="nav-pill">Home</Link>
-              <Link to="/about"    className="nav-pill">About</Link>
+              <Link to="/" className="nav-pill">Home</Link>
+              <Link to="/about" className="nav-pill">About</Link>
               <Link to="/Products" className="nav-pill">Products</Link>
-              <Link to="/contact"  className="nav-pill">Contact</Link>
+              <Link to="/contact" className="nav-pill">Contact</Link>
             </nav>
 
             {/* Mobile hamburger */}
@@ -118,7 +119,7 @@ function Home() {
 
       {/* Mobile menu panel: full blurred background behind stacked links */}
       {menuOpen && (
-        <div className="fixed z-30 top-24 inset-x-6 md:hidden">
+        <div className="mx-6 md:hidden mt-3 relative z-30">
           <div
             className="backdrop-blur-xl rounded-2xl p-2"
             style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
@@ -149,11 +150,15 @@ function Home() {
             {/* Individual blur-only CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/Products" className="glass-pill glass-cta">Get Started</Link>
-              <Link to="/about"    className="glass-pill glass-ghost">Learn More</Link>
+              <Link to="/about" className="glass-pill glass-ghost">Learn More</Link>
             </div>
           </div>
         </main>
       </div>
+
+      {/* Footer is below the fold thanks to 120vh wrapper */}
+      <div aria-hidden className="h-[30vh]" />
+      <Footer />
     </div>
   );
 }

@@ -97,7 +97,6 @@ export default function Privacy() {
           <ul className="mt-3 space-y-2 text-white/80">
             <li><strong>Cloudflare, Inc.</strong> — CDN and security (WAF/DDoS). Processes network metadata (e.g., IP address) to route traffic and protect the site.</li>
             <li><strong>Formspree</strong> — contact form processor; stores/relays your submission to our email. Their hosted thank-you page may use analytics on <em>their</em> domain.</li>
-            <li><strong>Zoho Mail (Zoho Corporation)</strong> — our email provider that receives and stores enquiry emails.</li>
           </ul>
           <p className="mt-3 text-white/80">We do not sell personal data.</p>
 

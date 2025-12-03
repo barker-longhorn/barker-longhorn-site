@@ -105,11 +105,11 @@ function Products() {
             {/* Subheader + body constrained to previous width */}
             <div className="max-w-3xl mx-auto">
               <h2 className="mt-6 text-2xl md:text-3xl font-semibold">
-                Evidence-first AI for clear reports, grounded in your sources.
+                Intelligent diligence for the modern investor.
               </h2>
 
               <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal text-justify">
-                Your data room is sprawling and fast-moving. DOCRA™ makes it usable. It listens for changes, combs the whole repository, and compresses what it finds into a verifiable evidence map. From there, you set a few focus terms, and DOCRA™ assembles a clean fact ledger that covers every matching source, collapses duplicates, and preserves citations. The result is a publication-ready document where every statement is traced to its source.
+              Your data room is noisy and fast-moving. DOCRA™ turns it into a focused diligence workspace, helping your team see the story, the risks, and the gaps at a glance.
               </p>
             </div>
 

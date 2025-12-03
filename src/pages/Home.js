@@ -140,11 +140,11 @@ function Home() {
           {/* HERO: left-aligned, shifted slightly right, further down */}
           <div className="ml-0 sm:ml-2 md:ml-4 lg:ml-6 max-w-3xl mt-6 md:mt-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
-              Clarity from chaos.
+            Intelligent diligence for the modern investor.
             </h1>
 
             <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl leading-snug md:leading-normal text-justify">
-              Turn sprawling data rooms into clean, citation-backed documents automatically and privately with DOCRA™ by Barker Longhorn™.
+              DOCRA™ by Barker Longhorn™ is VC-first software that helps you review data rooms faster, structure risks and questions, and keep each deal in a single, focused workspace.
             </p>
 
             {/* Individual blur-only CTAs */}

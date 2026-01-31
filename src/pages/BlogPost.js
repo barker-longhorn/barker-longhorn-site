@@ -7,13 +7,6 @@ import Footer from "../components/Footer";
 import heroVideo from "../assets/BL2.mp4";
 import { parseFrontmatter } from "../content/blog/parseFrontmatter";
 import { resolveBlogImage } from "../content/blog/resolveBlogImage";
-import { assetUrl } from "../content/blog/assetUrl";
-
-const markdownFiles = require.context(
-  "../content/blog/md",
-  false,
-  /\.md$/
-);
 
 export default function BlogPost() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,27 +39,8 @@ export default function BlogPost() {
 
     setLoading(true);
     setMissing(false);
-    let fileUrl = "";
-
-    try {
-      const mod = markdownFiles(`./${normalizedSlug}.md`);
-      fileUrl = assetUrl(mod);
-      if (!fileUrl) {
-        throw new Error("Missing markdown asset URL");
-      }
-    } catch (error) {
-      setMissing(true);
-      setLoading(false);
-      setMarkdown("");
-      setPostData(null);
-      if (process.env.NODE_ENV !== "production") {
-        // eslint-disable-next-line no-console
-        console.warn("Blog markdown not found for slug:", normalizedSlug, {
-          available: markdownFiles.keys(),
-        });
-      }
-      return;
-    }
+    const base = (process.env.PUBLIC_URL || "").replace(/\/+$/, "");
+    const fileUrl = `${base}/blog/md/${normalizedSlug}.md`;
 
     fetch(fileUrl)
       .then((response) => {

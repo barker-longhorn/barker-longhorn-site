@@ -1,24 +1,21 @@
 import { parseFrontmatter } from "./parseFrontmatter";
-import { assetUrl } from "./assetUrl";
-
-const mdContext = require.context("./md", false, /\.md$/);
+import { POST_SLUGS } from "./postSlugs";
 let cachedPosts = null;
 let inflight = null;
 
-function parseSlug(key) {
-  return key.replace("./", "").replace(".md", "");
+function buildMdUrl(slug) {
+  const base = (process.env.PUBLIC_URL || "").replace(/\/+$/, "");
+  return `${base}/blog/md/${slug}.md`;
 }
 
 export async function getPosts() {
   if (cachedPosts) return cachedPosts;
   if (inflight) return inflight;
 
-  const keys = mdContext.keys();
   inflight = Promise.all(
-    keys.map(async (key) => {
+    POST_SLUGS.map(async (slug) => {
       try {
-        const fileUrl = assetUrl(mdContext(key));
-        if (!fileUrl) return null;
+        const fileUrl = buildMdUrl(slug);
         const response = await fetch(fileUrl);
         if (!response.ok) {
           throw new Error(`Failed to fetch markdown: ${response.status}`);
@@ -28,7 +25,6 @@ export async function getPosts() {
         if (data.draft === true) {
           return null;
         }
-        const slug = parseSlug(key);
         const title = data.title || slug;
         const dateStr = (data.date || "").trim();
         const dateObj = dateStr ? new Date(dateStr) : null;
@@ -46,7 +42,7 @@ export async function getPosts() {
       } catch (error) {
         if (process.env.NODE_ENV !== "production") {
           // eslint-disable-next-line no-console
-          console.warn(`Failed to load blog post for ${key}`, error);
+          console.warn(`Failed to load blog post for ${slug}`, error);
         }
         return null;
       }

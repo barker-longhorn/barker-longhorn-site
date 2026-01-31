@@ -5,10 +5,13 @@ export function parseFrontmatter(raw) {
 
   const lines = raw2.split("\n");
   let startIndex = -1;
+  let delimiter = null;
   const scanLimit = Math.min(lines.length, 50);
   for (let i = 0; i < scanLimit; i += 1) {
-    if (lines[i].trim() === "---") {
+    const trimmed = lines[i].trim();
+    if (trimmed === "---fm" || trimmed === "---") {
       startIndex = i;
+      delimiter = trimmed;
       break;
     }
   }
@@ -19,7 +22,7 @@ export function parseFrontmatter(raw) {
 
   let endIndex = -1;
   for (let j = startIndex + 1; j < lines.length; j += 1) {
-    if (lines[j].trim() === "---") {
+    if (lines[j].trim() === delimiter) {
       endIndex = j;
       break;
     }

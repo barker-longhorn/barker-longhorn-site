@@ -1,4 +1,4 @@
----
+---fm
 title: "Introducing DOCRA™..."
 date: "2026-01-31"
 excerpt: "We’re building DOCRA: an evidence-first diligence assistant for investors."
@@ -12,6 +12,6 @@ section1Title: "Create a request"
 section1Body: "Create a request in your own format. DOCRA tracks uploads against your checklist so gaps are obvious and easy to chase down."
 section2Title: "Verify in seconds"
 section2Body: "DOCRA flags potential risks and links you straight to the supporting excerpts so you can verify quickly."
----
+---fm
 
 We’re building DOCRA: an evidence-first diligence assistant for investors. Startups drop in their data room and DOCRA helps you see what’s missing, what looks risky, and where it’s supported in the docs.

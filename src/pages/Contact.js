@@ -46,7 +46,7 @@ function Contact() {
               <nav className="hidden md:flex items-center gap-3 md:gap-5">
                 <Link to="/" className="nav-pill">Home</Link>
                 <Link to="/about" className="nav-pill">About</Link>
-                <Link to="/Products" className="nav-pill">Products</Link>
+                <Link to="/Products" className="nav-pill">DOCRA</Link>
                 <Link to="/blog" className="nav-pill">Blog</Link>
                 <Link to="/contact" className="nav-pill">Contact</Link>
               </nav>
@@ -75,7 +75,7 @@ function Contact() {
               <div className="flex flex-col">
                 <Link to="/" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Home</Link>
                 <Link to="/about" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>About</Link>
-                <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Products</Link>
+                <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>DOCRA</Link>
                 <Link to="/blog" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Blog</Link>
                 <Link to="/contact" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Contact</Link>
               </div>

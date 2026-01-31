@@ -55,7 +55,7 @@ function Home() {
   // --- End autoplay fallback ---
 
   return (
-    <div className="relative min-h-[120vh] w-full bg-black text-white overflow-x-hidden">
+    <div className="relative min-h-screen w-full bg-black text-white overflow-x-hidden">
       {/* Background video */}
       <div aria-hidden className="absolute inset-0">
         <video
@@ -99,7 +99,7 @@ function Home() {
             <nav className="hidden md:flex items-center gap-3 md:gap-5">
               <Link to="/" className="nav-pill">Home</Link>
               <Link to="/about" className="nav-pill">About</Link>
-              <Link to="/Products" className="nav-pill">Products</Link>
+              <Link to="/Products" className="nav-pill">DOCRA</Link>
               <Link to="/blog" className="nav-pill">Blog</Link>
               <Link to="/contact" className="nav-pill">Contact</Link>
             </nav>
@@ -128,7 +128,7 @@ function Home() {
             <div className="flex flex-col">
               <Link to="/" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Home</Link>
               <Link to="/about" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>About</Link>
-              <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Products</Link>
+              <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>DOCRA</Link>
               <Link to="/blog" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Blog</Link>
               <Link to="/contact" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Contact</Link>
             </div>
@@ -137,7 +137,7 @@ function Home() {
       )}
 
       {/* Content — pushed further down to clear header */}
-      <div className="relative z-20 pt-[11rem] md:pt-[13rem] px-4 sm:px-6 md:px-10 lg:px-16 pb-12">
+      <div className="relative z-20 pt-[5.5rem] md:pt-[7rem] px-4 sm:px-6 md:px-10 lg:px-16 pb-3">
         <main className="mt-8 md:mt-10 grid grid-cols-1">
           {/* HERO: left-aligned, shifted slightly right, further down */}
           <div className="ml-0 sm:ml-2 md:ml-4 lg:ml-6 max-w-3xl mt-6 md:mt-8">
@@ -159,7 +159,7 @@ function Home() {
       </div>
 
       {/* Footer is below the fold thanks to 120vh wrapper */}
-      <div aria-hidden className="h-[30vh]" />
+      <div aria-hidden className="h-[16vh]" />
       <Footer />
     </div>
   );

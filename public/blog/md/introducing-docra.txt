@@ -1,6 +1,6 @@
 ---fm
 title: "Introducing DOCRA™..."
-date: "2026-01-31"
+date: "2026-02-15"
 excerpt: "We’re building DOCRA: an evidence-first diligence assistant for investors."
 draft: false
 tags: ["Product","DOCRA"]
@@ -10,9 +10,10 @@ cover: "introducing-docra-hero.png"
 image1: "marketing3.png"
 image2: "redflags2.png"
 section1Title: "Create a request"
-section1Body: "Create a request in your own format. DOCRA tracks uploads against your checklist so gaps are obvious and easy to chase down."
+section1Body: "Diligence varies by a lot of factors; stage, sector, and company size to name a few. DOCRA starts with your request in your structure, so you can reuse templates when it fits and tweak them when it doesn’t. You send the request to the startup, they upload their data room, and DOCRA tracks coverage so it’s clear what’s provided, what’s missing, and what still needs follow-up."
 section2Title: "Verify in seconds"
-section2Body: "DOCRA flags potential risks and links you straight to the supporting excerpts so you can verify quickly."
+section2Body: "DOCRA flags potential risks and links you straight to the supporting documents from the startups so you can verify quickly. If something is marked as a concern, you can click through to the exact context and decide fast whether it matters. The goal is faster review without losing traceability."
+signOff: "We’ll share more soon. If you’re an investor and want early access, we’d love to show you what we’re building. Drop us a note at [enquiries@barkerlonghorn.com](mailto:enquiries@barkerlonghorn.com)!"
 ---fm
 
-We’re building DOCRA: an evidence-first diligence assistant for investors. Startups drop in their data room and DOCRA helps you see what’s missing, what looks risky, and where it’s supported in the docs.
+We’re building DOCRA, an evidence-first due diligence tool for investors. We are not another all-purpose platform. We’re built for one space and we go deep on the diligence workflow. We’re currently building our demo, which shows one part of the flow: requesting a data room, receiving uploads, and reviewing what comes back. It makes it clear what’s been provided, what’s missing, what needs a closer look, and where each finding is supported in the documents.

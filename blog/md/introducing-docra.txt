@@ -5,6 +5,7 @@ excerpt: "We’re building DOCRA: an evidence-first diligence assistant for inve
 draft: false
 tags: ["Product","DOCRA"]
 author: "Evie Barker, CEO"
+authorImage: "evie_team.png"
 cover: "introducing-docra-hero.png"
 image1: "marketing3.png"
 image2: "redflags2.png"

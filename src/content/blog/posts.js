@@ -20,6 +20,9 @@ export async function getPosts() {
         const fileUrl = assetUrl(mdContext(key));
         if (!fileUrl) return null;
         const response = await fetch(fileUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch markdown: ${response.status}`);
+        }
         const raw = await response.text();
         const { data } = parseFrontmatter(raw);
         if (data.draft === true) {

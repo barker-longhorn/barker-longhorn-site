@@ -1,6 +1,6 @@
 ---fm
 title: "Introducing DOCRA™..."
-date: "2026-02-15"
+date: "2026-01-31"
 excerpt: "We’re building DOCRA: an evidence-first diligence assistant for investors."
 draft: false
 tags: ["Product","DOCRA"]

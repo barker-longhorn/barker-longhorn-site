@@ -48,7 +48,11 @@ export default function BlogPost() {
         return response.text();
       })
       .then((raw) => {
+        // eslint-disable-next-line no-console
+        console.log("BLOG RAW START", slug, JSON.stringify(raw.slice(0, 80)));
         const { data, content } = parseFrontmatter(raw);
+        // eslint-disable-next-line no-console
+        console.log("BLOG FRONTMATTER", slug, data);
         setPostData(data);
         setMarkdown(content);
         setLoading(false);
@@ -59,7 +63,7 @@ export default function BlogPost() {
         setMarkdown("");
         setPostData(null);
       });
-  }, [normalizedSlug]);
+  }, [normalizedSlug, slug]);
 
   const introText = markdown.trim() ? markdown.trim() : postData?.excerpt || "";
   const coverSrc = resolveBlogImage(postData?.cover);

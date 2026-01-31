@@ -1,21 +1,36 @@
 export function parseFrontmatter(raw) {
-  let raw2 = raw.replace(/^\uFEFF/, "");
+  let raw2 = String(raw || "");
   raw2 = raw2.replace(/\r\n/g, "\n");
-  raw2 = raw2.replace(/^(?:[ \t]*\n)+/, "");
+  raw2 = raw2.replace(/^[\uFEFF\u200B\u200C\u200D\u2060]+/, "");
 
-  if (!raw2.startsWith("---\n")) {
+  const lines = raw2.split("\n");
+  let startIndex = -1;
+  const scanLimit = Math.min(lines.length, 50);
+  for (let i = 0; i < scanLimit; i += 1) {
+    if (lines[i].trim() === "---") {
+      startIndex = i;
+      break;
+    }
+  }
+
+  if (startIndex === -1) {
     return { data: {}, content: raw2 };
   }
 
-  const lines = raw2.split("\n");
-  const endIndex = lines.findIndex((line, idx) => idx > 0 && line.trim() === "---");
+  let endIndex = -1;
+  for (let j = startIndex + 1; j < lines.length; j += 1) {
+    if (lines[j].trim() === "---") {
+      endIndex = j;
+      break;
+    }
+  }
 
   if (endIndex === -1) {
     return { data: {}, content: raw2 };
   }
 
   const data = {};
-  for (let i = 1; i < endIndex; i += 1) {
+  for (let i = startIndex + 1; i < endIndex; i += 1) {
     const line = lines[i].trim();
     if (!line) continue;
     const sepIndex = line.indexOf(":");

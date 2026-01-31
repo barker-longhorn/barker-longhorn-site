@@ -127,7 +127,7 @@ function Blog() {
                 Blog
               </h1>
               <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal">
-                See our latest updates here ↓
+                See our latest updates here:
               </p>
             </div>
 
@@ -153,10 +153,10 @@ function Blog() {
                       <div className="grid gap-3 md:gap-4 md:grid-cols-[56px_1fr]">
                         <div className="flex md:flex-col items-center md:items-start gap-2 text-white/70">
                           <span className="text-xs uppercase tracking-[0.3em]">
-                            {formatMonth(post.date)}
+                            {post.dateMs ? formatMonth(post.date) : ""}
                           </span>
                           <span className="text-3xl font-semibold text-white">
-                            {formatDay(post.date)}
+                            {post.dateMs ? formatDay(post.date) : ""}
                           </span>
                         </div>
 

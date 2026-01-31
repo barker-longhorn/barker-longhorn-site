@@ -141,12 +141,12 @@ export default function AllArticles() {
                     >
                       <div className="grid gap-3 md:gap-4 md:grid-cols-[56px_1fr]">
                         <div className="flex md:flex-col items-center md:items-start gap-2 text-white/70">
-                          <span className="text-xs uppercase tracking-[0.3em]">
-                            {formatMonth(post.date)}
-                          </span>
-                          <span className="text-3xl font-semibold text-white">
-                            {formatDay(post.date)}
-                          </span>
+                        <span className="text-xs uppercase tracking-[0.3em]">
+                          {post.dateMs ? formatMonth(post.date) : ""}
+                        </span>
+                        <span className="text-3xl font-semibold text-white">
+                          {post.dateMs ? formatDay(post.date) : ""}
+                        </span>
                         </div>
 
                         <div className="grid gap-5 lg:grid-cols-[360px_1fr] items-center">

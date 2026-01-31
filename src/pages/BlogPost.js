@@ -5,8 +5,8 @@ import logo from "../assets/logowhite.png";
 import "../index.css";
 import Footer from "../components/Footer";
 import heroVideo from "../assets/BL2.mp4";
-import { BLOG_IMAGES } from "../content/blog/imageMap";
 import { parseFrontmatter } from "../content/blog/parseFrontmatter";
+import { resolveBlogImage } from "../content/blog/resolveBlogImage";
 
 const markdownFiles = require.context(
   "../content/blog/md",
@@ -22,13 +22,16 @@ export default function BlogPost() {
   const [loading, setLoading] = useState(false);
   const [missing, setMissing] = useState(false);
 
-  const formattedDate = postData?.date
-    ? new Date(postData.date).toLocaleDateString("en-GB", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "";
+  const formattedDate = (() => {
+    if (!postData?.date) return "";
+    const dateObj = new Date(postData.date);
+    if (Number.isNaN(dateObj.getTime())) return "";
+    return dateObj.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  })();
 
   useEffect(() => {
     if (!slug) {
@@ -72,13 +75,10 @@ export default function BlogPost() {
       });
   }, [slug]);
 
-  const resolveImage = (name) => {
-    if (!name) return null;
-    return BLOG_IMAGES[name] || null;
-  };
-
   const introText = markdown.trim() ? markdown.trim() : postData?.excerpt || "";
-  const coverSrc = resolveImage(postData?.cover);
+  const coverSrc = resolveBlogImage(postData?.cover);
+  const image1Src = resolveBlogImage(postData?.image1);
+  const image2Src = resolveBlogImage(postData?.image2);
 
   return (
     <div className="relative min-h-[120vh] w-full bg-black text-white overflow-x-hidden">
@@ -186,7 +186,7 @@ export default function BlogPost() {
                   <div className="mt-2 flex items-center gap-2 text-sm text-white/70">
                     {postData.authorImage ? (
                       <img
-                        src={resolveImage(postData.authorImage)}
+                        src={resolveBlogImage(postData.authorImage)}
                         alt={postData.author}
                         className="h-7 w-7 rounded-full object-cover"
                       />
@@ -225,9 +225,9 @@ export default function BlogPost() {
 
                 <div className="mt-8 grid gap-6 md:grid-cols-[260px_1fr] items-center">
                   <div className="w-[260px] h-[230px] rounded-2xl overflow-hidden bg-white/10">
-                    {postData.image1 ? (
+                    {image1Src ? (
                       <img
-                        src={resolveImage(postData.image1)}
+                        src={image1Src}
                         alt={postData.section1Title}
                         className="h-full w-full object-cover"
                       />
@@ -255,9 +255,9 @@ export default function BlogPost() {
                     </p>
                   </div>
                   <div className="order-1 md:order-2 w-[260px] h-[230px] rounded-2xl overflow-hidden bg-white/10">
-                    {postData.image2 ? (
+                    {image2Src ? (
                       <img
-                        src={resolveImage(postData.image2)}
+                        src={image2Src}
                         alt={postData.section2Title}
                         className="h-full w-full object-cover"
                       />

@@ -1,6 +1,6 @@
 import { parseFrontmatter } from "./parseFrontmatter";
 
-const markdownFiles = require.context("./md", false, /\.md$/);
+const mdContext = require.context("./md", false, /\.md$/);
 let cachedPosts = null;
 let inflight = null;
 
@@ -12,33 +12,45 @@ export async function getPosts() {
   if (cachedPosts) return cachedPosts;
   if (inflight) return inflight;
 
+  const keys = mdContext.keys();
   inflight = Promise.all(
-    markdownFiles.keys().map(async (key) => {
-      const fileUrl = markdownFiles(key);
-      const response = await fetch(fileUrl);
-      const raw = await response.text();
-      const { data } = parseFrontmatter(raw);
-      if (data.draft === true) {
+    keys.map(async (key) => {
+      try {
+        const fileUrl = mdContext(key);
+        const response = await fetch(fileUrl);
+        const raw = await response.text();
+        const { data } = parseFrontmatter(raw);
+        if (data.draft === true) {
+          return null;
+        }
+        const slug = parseSlug(key);
+        const title = data.title || slug;
+        const dateStr = (data.date || "").trim();
+        const dateObj = dateStr ? new Date(dateStr) : null;
+        const dateOk = dateObj && !Number.isNaN(dateObj.getTime());
+        return {
+          slug,
+          title,
+          author: data.author || "",
+          authorImage: data.authorImage || "",
+          excerpt: data.excerpt || "",
+          date: dateStr,
+          dateMs: dateOk ? dateObj.getTime() : 0,
+          coverName: data.cover || "",
+        };
+      } catch (error) {
+        if (process.env.NODE_ENV !== "production") {
+          // eslint-disable-next-line no-console
+          console.warn(`Failed to load blog post for ${key}`, error);
+        }
         return null;
       }
-      return {
-        slug: parseSlug(key),
-        title: data.title || "",
-        date: data.date || "",
-        excerpt: data.excerpt || "",
-        author: data.author || "",
-        authorImage: data.authorImage || "",
-        tags: Array.isArray(data.tags) ? data.tags : [],
-        cover: data.cover || null,
-      };
     })
   )
     .then((posts) =>
       posts
         .filter(Boolean)
-        .sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      )
+        .sort((a, b) => (b.dateMs || 0) - (a.dateMs || 0))
     )
     .then((posts) => {
       cachedPosts = posts;

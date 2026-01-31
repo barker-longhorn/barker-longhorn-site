@@ -103,7 +103,7 @@ export default function BlogPost() {
               <nav className="hidden md:flex items-center gap-3 md:gap-5">
                 <Link to="/" className="nav-pill">Home</Link>
                 <Link to="/about" className="nav-pill">About</Link>
-                <Link to="/Products" className="nav-pill">Products</Link>
+                <Link to="/Products" className="nav-pill">DOCRA</Link>
                 <Link to="/blog" className="nav-pill">Blog</Link>
                 <Link to="/contact" className="nav-pill">Contact</Link>
               </nav>
@@ -132,7 +132,7 @@ export default function BlogPost() {
               <div className="flex flex-col">
                 <Link to="/" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Home</Link>
                 <Link to="/about" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>About</Link>
-                <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Products</Link>
+                <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>DOCRA</Link>
                 <Link to="/blog" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Blog</Link>
                 <Link to="/contact" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Contact</Link>
               </div>
@@ -182,16 +182,16 @@ export default function BlogPost() {
                 ) : null}
 
                 {coverSrc ? (
-                  <div className="mt-6 rounded-2xl overflow-hidden bg-white/10">
+                  <div className="mt-6">
                     <img
                       src={coverSrc}
                       alt={postData.title}
-                      className="h-64 sm:h-72 w-full object-cover"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 ) : null}
 
-                <div className="mt-6 text-white/80 leading-relaxed">
+                <div className="mt-6 text-white/80 leading-relaxed text-justify">
                   {loading ? (
                     <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-sm text-white/70">
                       Loading…
@@ -225,7 +225,7 @@ export default function BlogPost() {
                     <h2 className="text-2xl font-semibold text-white">
                       {postData.section1Title}
                     </h2>
-                    <p className="mt-3 text-white/80 leading-relaxed">
+                    <p className="mt-3 text-white/80 leading-relaxed text-justify">
                       {postData.section1Body}
                     </p>
                   </div>
@@ -236,7 +236,7 @@ export default function BlogPost() {
                     <h2 className="text-2xl font-semibold text-white">
                       {postData.section2Title}
                     </h2>
-                    <p className="mt-3 text-white/80 leading-relaxed">
+                    <p className="mt-3 text-white/80 leading-relaxed text-justify">
                       {postData.section2Body}
                     </p>
                   </div>
@@ -252,6 +252,22 @@ export default function BlogPost() {
                     )}
                   </div>
                 </div>
+                {postData.signOff ? (
+                  <div className="mt-8 text-white/80 leading-relaxed text-justify">
+                    <ReactMarkdown
+                      components={{
+                        p: ({ children }) => <p>{children}</p>,
+                        a: ({ children, ...props }) => (
+                          <a {...props} className="underline hover:text-white">
+                            {children}
+                          </a>
+                        ),
+                      }}
+                    >
+                      {postData.signOff}
+                    </ReactMarkdown>
+                  </div>
+                ) : null}
               </div>
             ) : null}
           </div>

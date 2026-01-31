@@ -1,13 +1,17 @@
 export function parseFrontmatter(raw) {
-  if (!raw.startsWith("---")) {
-    return { data: {}, content: raw };
+  let raw2 = raw.replace(/^\uFEFF/, "");
+  raw2 = raw2.replace(/\r\n/g, "\n");
+  raw2 = raw2.replace(/^\s*\n+/, "");
+
+  if (!raw2.startsWith("---")) {
+    return { data: {}, content: raw2 };
   }
 
-  const lines = raw.split("\n");
+  const lines = raw2.split("\n");
   const endIndex = lines.findIndex((line, idx) => idx > 0 && line.trim() === "---");
 
   if (endIndex === -1) {
-    return { data: {}, content: raw };
+    return { data: {}, content: raw2 };
   }
 
   const data = {};

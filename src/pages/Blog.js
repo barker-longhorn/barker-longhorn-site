@@ -127,7 +127,7 @@ function Blog() {
                 Blog
               </h1>
               <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white/80 leading-snug md:leading-normal">
-                Notes, research, and field lessons on building clarity-first diligence.
+                see our latest updates here ↓
               </p>
             </div>
 

@@ -17,6 +17,7 @@ const markdownFiles = require.context(
 export default function BlogPost() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { slug } = useParams();
+  const normalizedSlug = (slug || "").replace(/\/+$/, "");
   const [markdown, setMarkdown] = useState("");
   const [postData, setPostData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ export default function BlogPost() {
   })();
 
   useEffect(() => {
-    if (!slug) {
+    if (!normalizedSlug) {
       setMissing(true);
       setLoading(false);
       setMarkdown("");
@@ -47,12 +48,18 @@ export default function BlogPost() {
     let fileUrl = "";
 
     try {
-      fileUrl = markdownFiles(`./${slug}.md`);
+      fileUrl = markdownFiles(`./${normalizedSlug}.md`);
     } catch (error) {
       setMissing(true);
       setLoading(false);
       setMarkdown("");
       setPostData(null);
+      if (process.env.NODE_ENV !== "production") {
+        // eslint-disable-next-line no-console
+        console.warn("Blog markdown not found for slug:", normalizedSlug, {
+          available: markdownFiles.keys(),
+        });
+      }
       return;
     }
 
@@ -73,7 +80,7 @@ export default function BlogPost() {
         setMarkdown("");
         setPostData(null);
       });
-  }, [slug]);
+  }, [normalizedSlug]);
 
   const introText = markdown.trim() ? markdown.trim() : postData?.excerpt || "";
   const coverSrc = resolveBlogImage(postData?.cover);

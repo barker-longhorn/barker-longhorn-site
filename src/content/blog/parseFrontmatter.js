@@ -1,9 +1,9 @@
 export function parseFrontmatter(raw) {
   let raw2 = raw.replace(/^\uFEFF/, "");
   raw2 = raw2.replace(/\r\n/g, "\n");
-  raw2 = raw2.replace(/^\s*\n+/, "");
+  raw2 = raw2.replace(/^(?:[ \t]*\n)+/, "");
 
-  if (!raw2.startsWith("---")) {
+  if (!raw2.startsWith("---\n")) {
     return { data: {}, content: raw2 };
   }
 

@@ -1,4 +1,5 @@
 import { parseFrontmatter } from "./parseFrontmatter";
+import { assetUrl } from "./assetUrl";
 
 const mdContext = require.context("./md", false, /\.md$/);
 let cachedPosts = null;
@@ -16,7 +17,8 @@ export async function getPosts() {
   inflight = Promise.all(
     keys.map(async (key) => {
       try {
-        const fileUrl = mdContext(key);
+        const fileUrl = assetUrl(mdContext(key));
+        if (!fileUrl) return null;
         const response = await fetch(fileUrl);
         const raw = await response.text();
         const { data } = parseFrontmatter(raw);

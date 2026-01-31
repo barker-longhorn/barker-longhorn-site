@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import heroVideo from "../assets/BL2.mp4";
 import { parseFrontmatter } from "../content/blog/parseFrontmatter";
 import { resolveBlogImage } from "../content/blog/resolveBlogImage";
+import { assetUrl } from "../content/blog/assetUrl";
 
 const markdownFiles = require.context(
   "../content/blog/md",
@@ -48,7 +49,11 @@ export default function BlogPost() {
     let fileUrl = "";
 
     try {
-      fileUrl = markdownFiles(`./${normalizedSlug}.md`);
+      const mod = markdownFiles(`./${normalizedSlug}.md`);
+      fileUrl = assetUrl(mod);
+      if (!fileUrl) {
+        throw new Error("Missing markdown asset URL");
+      }
     } catch (error) {
       setMissing(true);
       setLoading(false);

@@ -4,9 +4,8 @@ import logo from "../assets/logowhite.png";
 import "../index.css";
 import Footer from "../components/Footer";
 import heroVideo from "../assets/BL2.mp4";
-import aboutImage from "../assets/aboutus.png";
-import { BLOG_IMAGES } from "../content/blog/imageMap";
 import { getPosts } from "../content/blog/posts";
+import { resolveBlogImage } from "../content/blog/resolveBlogImage";
 
 export default function AllArticles() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,8 +39,8 @@ export default function AllArticles() {
     new Date(isoDate).toLocaleString("en-US", { day: "2-digit" });
 
   const resolveCover = (cover) => {
-    if (!cover) return aboutImage;
-    return BLOG_IMAGES[cover] || cover;
+    const resolved = resolveBlogImage(cover);
+    return resolved || null;
   };
 
   return (
@@ -151,13 +150,17 @@ export default function AllArticles() {
                         </div>
 
                         <div className="grid gap-5 lg:grid-cols-[360px_1fr] items-center">
-                          <div className="rounded-2xl overflow-hidden bg-white/10 max-w-full">
-                            <img
-                              src={resolveCover(post.cover)}
-                              alt={post.title}
-                              className="h-40 w-full object-cover"
-                            />
-                          </div>
+                          {resolveCover(post.coverName) ? (
+                            <div className="rounded-2xl overflow-hidden bg-white/10 max-w-full">
+                              <img
+                                src={resolveCover(post.coverName)}
+                                alt={post.title}
+                                className="h-40 w-full object-cover"
+                              />
+                            </div>
+                          ) : (
+                            <div className="h-40 w-full rounded-2xl bg-white/5" />
+                          )}
 
                           <div>
                             <h2 className="text-xl font-semibold leading-snug">
@@ -166,7 +169,7 @@ export default function AllArticles() {
                               </Link>
                             </h2>
                             <div className="mt-2 flex items-center gap-2 text-sm text-white/70">
-                              {post.authorImage ? (
+                              {post.authorImage && resolveCover(post.authorImage) ? (
                                 <img
                                   src={resolveCover(post.authorImage)}
                                   alt={post.author || "Author"}
@@ -174,12 +177,15 @@ export default function AllArticles() {
                                 />
                               ) : null}
                               <span>
-                                {post.author ? `${post.author} · ` : ""}
-                                {new Date(post.date).toLocaleDateString("en-GB", {
-                                  day: "2-digit",
-                                  month: "long",
-                                  year: "numeric",
-                                })}
+                              {post.author ? `${post.author}` : ""}
+                              {post.author && post.dateMs ? " · " : ""}
+                              {post.dateMs
+                                ? new Date(post.date).toLocaleDateString("en-GB", {
+                                    day: "2-digit",
+                                    month: "long",
+                                    year: "numeric",
+                                  })
+                                : ""}
                               </span>
                             </div>
                             <p className="mt-2 text-sm text-white/70">

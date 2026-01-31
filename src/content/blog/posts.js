@@ -5,7 +5,7 @@ let inflight = null;
 
 function buildMdUrl(slug) {
   const base = (process.env.PUBLIC_URL || "").replace(/\/+$/, "");
-  return `${base}/blog/md/${slug}.md`;
+  return `${base}/blog/md/${slug}.txt`;
 }
 
 export async function getPosts() {

@@ -40,7 +40,7 @@ export default function BlogPost() {
     setLoading(true);
     setMissing(false);
     const base = (process.env.PUBLIC_URL || "").replace(/\/+$/, "");
-    const fileUrl = `${base}/blog/md/${normalizedSlug}.md`;
+    const fileUrl = `${base}/blog/md/${normalizedSlug}.txt`;
 
     fetch(fileUrl)
       .then((response) => {

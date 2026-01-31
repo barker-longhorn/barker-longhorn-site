@@ -26,6 +26,7 @@ export default function Cookies() {
               <Link to="/" className="nav-pill">Home</Link>
               <Link to="/about" className="nav-pill">About</Link>
               <Link to="/Products" className="nav-pill">Products</Link>
+              <Link to="/blog" className="nav-pill">Blog</Link>
               <Link to="/contact" className="nav-pill">Contact</Link>
             </nav>
             <button className="md:hidden nav-pill" aria-label="Open navigation" onClick={() => setMenuOpen(v => !v)}>
@@ -42,6 +43,7 @@ export default function Cookies() {
               <Link to="/" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Home</Link>
               <Link to="/about" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>About</Link>
               <Link to="/Products" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Products</Link>
+              <Link to="/blog" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Blog</Link>
               <Link to="/contact" className="nav-pill py-3 text-center" onClick={() => setMenuOpen(false)}>Contact</Link>
             </div>
           </div>

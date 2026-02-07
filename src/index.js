@@ -4,6 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const p = new URLSearchParams(window.location.search).get("p");
+if (p) {
+  const decoded = decodeURIComponent(p);
+  const target = decoded.startsWith("/") ? decoded : `/${decoded}`;
+  const base = window.location.pathname.replace(/\/$/, "");
+  const dest = `${window.location.origin}${base}/#${target}`;
+  if (!window.location.hash || window.location.hash !== `#${target}`) {
+    if (window.location.href !== dest) {
+      window.location.replace(dest);
+    }
+  }
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

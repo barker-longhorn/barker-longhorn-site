@@ -80,6 +80,7 @@ export default function Privacy() {
             Registered office: 10 Crew Lane Close, Southwell, NG25 0JA, United Kingdom.<br />
             Contact for privacy matters: <a href="mailto:enquiries@barkerlonghorn.com" className="underline">enquiries@barkerlonghorn.com</a>.
           </p>
+          <p className="mt-3 text-base sm:text-lg text-white/70">Docra is a registered trademark in the UK.</p>
 
           <h2 className="mt-8 text-2xl font-semibold">What personal data we process</h2>
           <ul className="mt-3 space-y-2 text-white/80">

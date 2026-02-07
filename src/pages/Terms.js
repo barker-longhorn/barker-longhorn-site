@@ -103,6 +103,7 @@ export default function Terms() {
             All other trademarks are the property of their respective owners. Except as permitted by law, you must not copy,
             adapt, or reuse content without permission.
           </p>
+          <p className="mt-3 text-white/80">Docra is a registered trademark in the UK.</p>
 
           <h2 className="mt-8 text-2xl font-semibold">Information only</h2>
           <p className="mt-3 text-white/80">

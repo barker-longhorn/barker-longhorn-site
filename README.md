@@ -6,6 +6,13 @@ A React-based marketing/landing site for Barker Longhorn.
 
 [https://domlonghorn.github.io/barker-longhorn-site](https://domlonghorn.github.io/barker-longhorn-site)
 
+## 🔗 LinkedIn Share Links (HashRouter)
+
+To share on LinkedIn (which drops everything after `#`), use the `?p=` format:
+
+- Replace `#/` with `?p=/`
+- Example: `https://www.barkerlonghorn.com/?p=/blog/your-slug`
+
 ---
 
 ## 🛠️ Project Setup

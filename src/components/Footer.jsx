@@ -30,6 +30,7 @@ export default function Footer() {
 
           <div className="py-4">
             <p className="text-xs text-white/60">© {year} Barker Longhorn Limited</p>
+            <p className="text-xs text-white/50">Docra is a registered trademark in the UK.</p>
           </div>
         </div>
       </div>

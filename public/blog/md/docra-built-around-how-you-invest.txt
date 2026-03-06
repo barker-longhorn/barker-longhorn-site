@@ -1,0 +1,25 @@
+---fm
+title: "DOCRA™: built around how YOU invest."
+date: "2026-03-15"
+excerpt: "No two investors are the same, so why should your diligence tool be?"
+draft: true
+tags: ["Product","DOCRA"]
+author: "Evie Barker, CEO"
+authorImage: "evie_team.png"
+cover: "Header_march_blog.png"
+image1: "investment_fit.png"
+image2: "templateitems.png"
+section1Title: "Thesis matching"
+section1Body: "Upload your investment thesis and DOCRA automatically assesses every startup you're evaluating against it. Stage fit, check size, sector alignment: scored and explained, not just flagged. Your thesis defines what matters to you, and DOCRA applies it consistently across every deal you're reviewing."
+section2Title: "Custom checklists"
+section2Body: "Build your data room checklist your way. Define exactly what counts as 'present' for each item, set your own rules and restrictions, save it as a reusable template, and apply it across as many deals as you like. When your process changes, your template changes with it."
+signOff: "We're demoing now. If you're an investor and want to see it in action, we'd love to show you what we're building. Drop us a note at [enquiries@barkerlonghorn.com](mailto:enquiries@barkerlonghorn.com)!"
+---fm
+
+This month we're showcasing the features that sit at the heart of how it works: modularity and customisability.
+
+Every investor has a different process. Different thesis, different stage focus, different checklist. Most tools ignore that and hand you a fixed workflow. DOCRA starts from the other direction: you define what good looks like, and the software applies it.
+
+That means you can upload your thesis and instantly see how any startup stacks up against your own criteria, not a generic scoring rubric. It means your data room checklist reflects your standards. And it means the templates you build today are reusable across every deal you run tomorrow.
+
+The goal is a tool that gets sharper the more you use it, because it's learning your process, not teaching you a new one.

@@ -23,7 +23,10 @@ export async function getPosts() {
         const raw = await response.text();
         const { data } = parseFrontmatter(raw);
         if (data.draft === true) {
-          return null;
+          const postDate = data.date ? new Date(data.date) : null;
+          if (!postDate || postDate > new Date()) {
+            return null;
+          }
         }
         const title = data.title || slug;
         const dateStr = (data.date || "").trim();

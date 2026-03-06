@@ -200,7 +200,7 @@ export default function BlogPost() {
                     <ReactMarkdown
                       components={{
                         p: ({ children }) => (
-                          <p className="text-white/80 mb-4 text-justify">{children}</p>
+                          <p className="text-white/80" style={{ marginBottom: "1rem", textAlign: "justify" }}>{children}</p>
                         ),
                       }}
                     >

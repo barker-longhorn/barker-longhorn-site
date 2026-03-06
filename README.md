@@ -38,3 +38,19 @@ npm start
 ```bash
 npm deploy
 ```
+
+---
+
+## 📝 Publishing a Blog Post
+
+1. Drop your `.txt` file into `public/blog/md/`
+2. Add any images to `public/blog/images/`
+3. Run:
+
+```bash
+node scripts/publish-blog.js
+```
+
+This auto-updates the slug registry, commits, and deploys.
+
+**Scheduling:** Set `draft: true` with a future `date` in the frontmatter — the post will appear automatically on that date without any further action.

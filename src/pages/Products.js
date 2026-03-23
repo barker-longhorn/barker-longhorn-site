@@ -51,16 +51,21 @@ function Products() {
     },
     {
       num: "03",
+      title: "Deep-dive research beyond the data room",
+      body: "Once the documents check out, DOCRA goes further; researching the founders, the entity, the market, competitive landscape, and surfacing any red flags. The context you'd normally spend hours pulling together, done automatically.",
+    },
+    {
+      num: "04",
       title: "Score against your thesis",
       body: "DOCRA checks the deal against your investment thesis, not a generic rubric. Your criteria, your scoring.",
     },
     {
-      num: "04",
+      num: "05",
       title: "Generate your IC memo",
       body: "One click. Grounded in the evidence you've gathered throughout the process, not stitched together from memory.",
     },
     {
-      num: "05",
+      num: "06",
       title: "Stop switching tabs",
       body: "Most teams doing AI-assisted diligence today are manually copying documents into ChatGPT, Claude, NotebookLM, or whatever's open in the next tab, writing their own prompts, and stitching the outputs together themselves. DOCRA does all of that inside a single workflow; purpose-built so you never have to engineer a prompt or play go-between again.",
     },

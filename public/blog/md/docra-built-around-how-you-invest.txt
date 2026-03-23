@@ -2,7 +2,6 @@
 title: "DOCRA™: built around how YOU invest."
 date: "2026-03-15"
 excerpt: "No two investors are the same, so why should your diligence tool be?"
-draft: true
 tags: ["Product","DOCRA"]
 author: "Evie Barker, CEO"
 authorImage: "evie_team.png"

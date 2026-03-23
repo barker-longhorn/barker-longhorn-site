@@ -199,10 +199,13 @@ function Products() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-white overflow-x-hidden" style={{ backgroundColor: "#0a0a0f" }}>
       {/* Background video — top portion, fades to black */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-[85vh] overflow-hidden">
+      {/* Solid black strip to push video down */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[9vh] z-[2] bg-black" />
+      {/* Background video — positioned below the strip */}
+      <div aria-hidden className="absolute inset-x-0 top-[9vh] h-[85vh] overflow-hidden">
         <video
-          className="h-full w-full object-cover origin-center"
-          style={{ transform: "scaleX(-1) scale(1.15)" }}
+          className="h-full w-full object-cover"
+          style={{ transform: "scaleX(-1) scale(1.15)", objectPosition: "center top" }}
           autoPlay
           loop
           muted

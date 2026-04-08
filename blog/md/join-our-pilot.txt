@@ -1,0 +1,25 @@
+---fm
+title: "DOCRA™: Join the pilot."
+date: "2026-04-15"
+excerpt: "We're recruiting early-stage investors to use DOCRA on real deals."
+tags: ["Product","DOCRA","Pilot"]
+author: "Evie Barker, CEO"
+authorImage: "evie_team.png"
+cover: "docra_header_snow.png"
+image1: "docra_pipeline_hires.png"
+image2: "docra_market_sector_hires.png"
+section1Title: "Every deal, one view"
+section1Body: "Most deal platforms are built for later-stage funds with big teams and bigger budgets. DOCRA is built for seed, pre-seed, and angel investors who don't have a team of associates to do the legwork. Track your entire pipeline from first look to partner vote. One place instead of four different tools stitched together."
+section2Title: "Founder and market research, sourced"
+section2Body: "DOCRA pulls founder credentials from LinkedIn, GitHub, and public filings, then cross-references the claims. Market sizing, growth trends, competitive landscape, and regulatory risks, all cited with independent sources. Not generated from thin air."
+signOff: "The pilot is live and spots are limited. If you're doing your own diligence and want to see how DOCRA handles a real deal end to end, drop us a note at [enquiries@barkerlonghorn.com](mailto:enquiries@barkerlonghorn.com)."
+---fm
+Last month we showed you how DOCRA moulds to your process. This month, we're putting it in your hands.
+
+We're opening a pilot programme for a small group of early-stage investors. The idea is simple: you use DOCRA on real deals, we learn where it helps most and where it needs work, and you lock in founding member pricing for life.
+
+We've spent months talking to investors, testing with friendly VCs, and iterating on feedback. The platform now covers the full pre-deal pipeline, from initial screening and data room collection through to founder research, market analysis, and IC memo generation. Everything is sourced, cited, and built around your process rather than a one-size-fits-all workflow.
+
+What we're looking for is investors who are actively reviewing deals and willing to give honest feedback. We want to know where DOCRA saves the most time, where it breaks, and what matters most in practice. In return, pilot members get permanent founding pricing and direct input into what we build next.
+
+If you're a seed-stage VC, angel group, or solo investor doing your own diligence, this is built for you.

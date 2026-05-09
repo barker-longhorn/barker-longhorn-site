@@ -1,0 +1,17 @@
+---fm
+title: "DOCRA™: the 40-hour gap."
+date: "2026-05-15"
+excerpt: "Angel investors who spend 40+ hours on DD get 7x returns. Most don't have 40 hours."
+tags: ["Product","DOCRA","Due Diligence"]
+author: "Evie Barker, CEO"
+authorImage: "evie_team.png"
+cover: "docra_header_may.png"
+image1: "docra_may_feature1_hires.png"
+image2: "docra_may_feature2_hires.png"
+section1Title: "Deeper diligence, not more hours"
+section1Body: "The same study found that the top quartile of investors by diligence time also saw their failure rate drop from 65% to 45%. It's not just about bigger wins, it's about fewer losses. But for solo investors and small teams, depth means trade-offs. You either go deep on fewer deals or spread thin across many. DOCRA automates the research layer, founder verification, market analysis, competitive landscape, all sourced and cited, so you get the depth without the hours."
+section2Title: "Your pipeline is already being filtered by AI"
+section2Body: "85% of private capital dealmakers now use AI to automate daily tasks. 82% use it specifically for deal sourcing research ([Affinity, 2026](https://www.affinity.co/guides/vc-ai-tools)). The biggest firms are running AI across sourcing, diligence, and internal ops. That means the standard for what 'good diligence' looks like is rising fast. DOCRA gives smaller teams the same structured, evidence-backed workflow without the enterprise price tag."
+signOff: "We're still building and we want as much feedback as we can get. If you're an early-stage investor and want to try DOCRA on a real deal, we'd love to hear from you at [enquiries@barkerlonghorn.com](mailto:enquiries@barkerlonghorn.com)."
+---fm
+Angel investors who spend over 40 hours on due diligence average 7.1x returns. Those who spend under 20 hours? 1.1x. That's from a study of 1,137 exits across 539 angel investors ([Wiltbank & Boeker, Kauffman Foundation](https://www.angelcapitalassociation.org/data/Documents/Resources/AngelGroupResarch/1d%20-%20Resources%20-%20Research/6%20RSCH_-_ACEF_-_Returns_to_Angel_Investor_in_Groups.pdf)). The pattern is clear: deeper diligence means better returns. The problem is most early-stage investors don't have 40 hours per deal. DOCRA closes that gap.
